@@ -27,7 +27,6 @@ def getInfoLydia(username, password):
     arbeidslistebtn.click()
     time.sleep(10)
     antall_tiltak = len(driver.find_elements(By.XPATH, var.tiltaksnr))
-    print("Laster inn tiltak, vennligst vent...")
     for x in range(0, antall_tiltak):
         tiltaksnr = driver.find_elements(By.XPATH, var.tiltaksnr)[x].text
         tiltaksnavn = driver.find_elements(By.XPATH, var.tiltaksnavn)[x].text
