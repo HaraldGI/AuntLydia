@@ -7,3 +7,6 @@ username_var = "//input[@id='ctl00_MainContent_ctl08_LoginControl_UserName']"
 password_var = "//input[@id = 'ctl00_MainContent_ctl08_LoginControl_Password']"
 loginbutton = "//button[@value='Logg inn']"
 arbeidsliste = "//*[contains(text(), 'Din egen arbeidsliste (Mine tiltak) fra LYDIA.')]"
+your_address = 'grellerbot@gmail.com'
+app_key = 'ruxfsityokbwewyb'
+receiver_address = 'haraldgimse@gmail.com'

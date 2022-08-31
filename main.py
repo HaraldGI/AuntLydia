@@ -1,12 +1,12 @@
 from funksjoner import *
 
+USERNAME = 'hgf' #input("Login as: ")
+PASSWORD = 'hgf' #input("Password: ")
 
-USERNAME = input("Login as: ")
-PASSWORD = input("Password: ")
 
 def main():
     print("Alle tiltak lastes inn. Vennligst vent.")
-    alle_tiltak = getInfoLydia(USERNAME, PASSWORD)
+    alle_tiltak = getinfolydia(USERNAME, PASSWORD)
     print("Velg ønsket funksjon:")
     print("1. Print liste med alle lydia avvik")
     print("2. Send ett eller flere avvik som mail.")
@@ -27,9 +27,18 @@ def main():
                 print(f"{tiltak}. {alle_tiltak[tiltak]['Tiltaksnummer']} | {alle_tiltak[tiltak]['Tiltaksnavn']}")
             while True:
                 send_tiltak = alle_tiltak
-                valg = int(input("Hvilket tiltak vil du sende?"))
-                sendMail(send_tiltak, valg)
+                try:
+                    valg = int(input("Hvilket tiltak vil du sende? Legg inn nummer og trykk ENTER. Tast '99' for å avslutte. "))
+                    if valg != 99:
+                        sendmail(send_tiltak, valg)
+                except ValueError:
+                    print("Please select a valid number.")
+                if valg == 99:
+                    break
+
         else:
             break
+    print("Program avsluttes.")
+
 
 main()
