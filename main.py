@@ -1,7 +1,7 @@
 from funksjoner import *
 
-USERNAME = 'hgf' #input("Login as: ")
-PASSWORD = 'hgf' #input("Password: ")
+USERNAME = input("Login as: ")
+PASSWORD = input("Password: ")
 
 
 def main():
@@ -37,6 +37,7 @@ def main():
                     break
 
         else:
+            print("Du har ikke valgt en funksjon som støttes.")
             break
     print("Program avsluttes.")
 

@@ -59,7 +59,6 @@ def sendmail(send_tiltak, valg):
 Beskrivelse av tiltak: {send_tiltak[valg]['Beskrivelse']}
 ------------------------------------------------------
 """
-
     # Setup the MIME
     message = MIMEMultipart()
     message['From'] = var.your_address
@@ -68,11 +67,12 @@ Beskrivelse av tiltak: {send_tiltak[valg]['Beskrivelse']}
     # The body and the attachments for the mail
     message.attach(MIMEText(mail_content, 'plain'))
     # Create SMTP session for sending the mail
-    session = smtplib.SMTP('smtp.gmail.com', 587)  # use gmail with port
-    session.starttls()  # enable security
+    session = smtplib.SMTP('smtp.gmail.com', 587)
+    # Enable security
+    session.starttls()
     session.login(var.your_address, var.app_key)  # login with mail_id and password
     text = message.as_string()
     session.sendmail(var.your_address, var.receiver_address, text)
     session.quit()
-    # send_tiltak inneholder hele dictionary hentet fra getInfoLydia().
+    # send_tiltak contains dictionary from getinfolydia().
     print(f"Mail for tiltaksnummer: {send_tiltak[valg]['Tiltaksnummer']} er sendt.")
