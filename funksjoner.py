@@ -3,15 +3,14 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
 import var
 
 
 def getinfolydia(username, password):
     lydia_tiltak = []
-    options = Options()
-    options.headless = True
-    driver = webdriver.Chrome('chromedriver')
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome('chromedriver', options=options)
     driver.get('https://lydiaweb.itea.ntnu.no/Lydia/Account/Login.aspx?returnUrl=https%3a%2f%2flydiaweb.itea.ntnu.no'
                '%2fLydia%2fDefault.aspx')
     WebDriverWait(driver, 10000).until(ec.visibility_of_element_located((By.TAG_NAME, 'body')))
